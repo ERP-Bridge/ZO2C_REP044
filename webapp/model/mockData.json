@@ -1,0 +1,327 @@
+{
+  "app": {
+    "site": "BE000060 - J&J FM PC"
+  },
+  "customers": [
+    {
+      "customerId": "CUST_JNJ",
+      "customerName": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "soldToAddressData": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "billToCustomer": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "soldToAddressLine1": "Turnhoutseweg 30",
+      "soldToAddressLine2": "2340 Beerse",
+      "soldToAddressLine3": "Belgium",
+      "billToAddressLine1": "Turnhoutseweg 30",
+      "billToAddressLine2": "2340 Beerse",
+      "billToAddressLine3": "Belgium",
+      "shipToOptions": [
+        {
+          "shipToId": "JNJ_SHIP_1",
+          "shipToName": "Turnhoutseweg 30, Beerse",
+          "shipToFullAddress": "Turnhoutseweg 30, 2340 Beerse, Belgium",
+          "shipToAddressLine1": "Turnhoutseweg 30",
+          "shipToAddressLine2": "2340 Beerse",
+          "shipToAddressLine3": "Belgium"
+        },
+        {
+          "shipToId": "JNJ_SHIP_2",
+          "shipToName": "Research Park 12, Beerse",
+          "shipToFullAddress": "Research Park 12, 2340 Beerse, Belgium",
+          "shipToAddressLine1": "Research Park 12",
+          "shipToAddressLine2": "2340 Beerse",
+          "shipToAddressLine3": "Belgium"
+        }
+      ]
+    },
+    {
+      "customerId": "CUST_FRESHBITE",
+      "customerName": "2000012346 - FreshBite Corporate Catering",
+      "soldToAddressData": "2000012346 - FreshBite Corporate Catering",
+      "billToCustomer": "2000012346 - FreshBite Corporate Catering",
+      "soldToAddressLine1": "Rue de la Cuisine 18",
+      "soldToAddressLine2": "1000 Brussels",
+      "soldToAddressLine3": "Belgium",
+      "billToAddressLine1": "Rue de la Cuisine 18",
+      "billToAddressLine2": "1000 Brussels",
+      "billToAddressLine3": "Belgium",
+      "shipToOptions": [
+        {
+          "shipToId": "FB_SHIP_1",
+          "shipToName": "Avenue Foodpark 45, Diegem",
+          "shipToFullAddress": "Avenue Foodpark 45, 1831 Diegem, Belgium",
+          "shipToAddressLine1": "Avenue Foodpark 45",
+          "shipToAddressLine2": "1831 Diegem",
+          "shipToAddressLine3": "Belgium"
+        },
+        {
+          "shipToId": "FB_SHIP_2",
+          "shipToName": "Kitchen Hub 22, Brussels",
+          "shipToFullAddress": "Kitchen Hub 22, 1000 Brussels, Belgium",
+          "shipToAddressLine1": "Kitchen Hub 22",
+          "shipToAddressLine2": "1000 Brussels",
+          "shipToAddressLine3": "Belgium"
+        },
+        {
+          "shipToId": "FB_SHIP_3",
+          "shipToName": "FreshBite Warehouse 7, Leuven",
+          "shipToFullAddress": "FreshBite Warehouse 7, 3000 Leuven, Belgium",
+          "shipToAddressLine1": "FreshBite Warehouse 7",
+          "shipToAddressLine2": "3000 Leuven",
+          "shipToAddressLine3": "Belgium"
+        }
+      ]
+    }
+  ],
+  "filters": {
+    "site": "BE000060 - J&J FM PC",
+    "soldToCustomerId": "CUST_JNJ",
+    "soldToAddressData": "2000012345 - Johnson & Johnson Innovative Medicine",
+    "contractNum": "",
+    "epmNum": "",
+    "epmContractDescription": "",
+    "validFrom": "",
+    "validTo": ""
+  },
+  "contracts": [
+    {
+      "selected": false,
+      "customerId": "CUST_JNJ",
+      "customer": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "contractNum": "BEC201080",
+      "contractDescription": "Contractual Sales",
+      "epmNum": "BE.C000001",
+      "epmDescription": "J&J facility management services",
+      "poNumber": "JNJ-PO-1001",
+      "validFrom": "12/02/2026",
+      "validTo": "11/02/2027"
+    },
+    {
+      "selected": false,
+      "customerId": "CUST_JNJ",
+      "customer": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "contractNum": "BEC201081",
+      "contractDescription": "Security Services",
+      "epmNum": "BE.C000002",
+      "epmDescription": "J&J security and access control",
+      "poNumber": "JNJ-PO-1002",
+      "validFrom": "01/03/2026",
+      "validTo": "28/02/2027"
+    },
+    {
+      "selected": false,
+      "customerId": "CUST_JNJ",
+      "customer": "2000012345 - Johnson & Johnson Innovative Medicine",
+      "contractNum": "BEC201082",
+      "contractDescription": "Cleaning Services",
+      "epmNum": "BE.C000003",
+      "epmDescription": "J&J cleaning and hygiene services",
+      "poNumber": "JNJ-PO-1003",
+      "validFrom": "15/03/2026",
+      "validTo": "14/03/2027"
+    },
+    {
+      "selected": false,
+      "customerId": "CUST_FRESHBITE",
+      "customer": "2000012346 - FreshBite Corporate Catering",
+      "contractNum": "BEC301080",
+      "contractDescription": "Food Services",
+      "epmNum": "BE.F000001",
+      "epmDescription": "FreshBite cafeteria meal services",
+      "poNumber": "FB-PO-2001",
+      "validFrom": "12/02/2026",
+      "validTo": "11/02/2027"
+    },
+    {
+      "selected": false,
+      "customerId": "CUST_FRESHBITE",
+      "customer": "2000012346 - FreshBite Corporate Catering",
+      "contractNum": "BEC301081",
+      "contractDescription": "Catering Services",
+      "epmNum": "BE.F000002",
+      "epmDescription": "FreshBite corporate catering support",
+      "poNumber": "FB-PO-2002",
+      "validFrom": "01/03/2026",
+      "validTo": "28/02/2027"
+    },
+    {
+      "selected": false,
+      "customerId": "CUST_FRESHBITE",
+      "customer": "2000012346 - FreshBite Corporate Catering",
+      "contractNum": "BEC301082",
+      "contractDescription": "Pantry Services",
+      "epmNum": "BE.F000003",
+      "epmDescription": "FreshBite pantry and snack services",
+      "poNumber": "FB-PO-2003",
+      "validFrom": "15/03/2026",
+      "validTo": "14/03/2027"
+    }
+  ],
+  "visibleContracts": [],
+  "selectedContract": {},
+  "shipToOptions": [],
+  "salesOrder": {
+    "isSaved": false,
+    "isConfirmed": false,
+    "showAddressDetails": true,
+    "addressToggleIcon": "sap-icon://hide",
+    "showAttachments": true,
+    "attachmentsToggleIcon": "sap-icon://hide",
+    "site": "BE000060 - J&J FM PC...",
+    "billToCustomer": "",
+    "soldToAddressLine1": "",
+    "soldToAddressLine2": "",
+    "soldToAddressLine3": "",
+    "billToAddressLine1": "",
+    "billToAddressLine2": "",
+    "billToAddressLine3": "",
+    "selectedShipToId": "",
+    "shipToAddressLine1": "",
+    "shipToAddressLine2": "",
+    "shipToAddressLine3": "",
+    "category": "Placeholder",
+    "description": "Contractual",
+    "additionalInformation": "",
+    "serviceDateFrom": "2026-04-04",
+    "serviceDateTo": "2026-04-08",
+    "postingDate": "2026-07-08",
+    "customerPoNumber": "",
+    "currency": "EUR",
+    "uploadFileName": "Additional document.jpg"
+  },
+  "categoryOptions": [
+    {
+      "key": "Placeholder",
+      "text": "Placeholder",
+      "defaultDescription": "Contractual"
+    },
+    {
+      "key": "FoodServices",
+      "text": "Food Services",
+      "defaultDescription": "Food Services"
+    },
+    {
+      "key": "FacilityServices",
+      "text": "Facility Services",
+      "defaultDescription": "Facility Services"
+    },
+    {
+      "key": "SecurityServices",
+      "text": "Security Services",
+      "defaultDescription": "Security Services"
+    },
+    {
+      "key": "CleaningServices",
+      "text": "Cleaning Services",
+      "defaultDescription": "Cleaning Services"
+    }
+  ],
+  "attachments": [
+    {
+      "attachmentId": "ATT_1",
+      "selected": true,
+      "fileName": "Long attached file name.ext"
+    },
+    {
+      "attachmentId": "ATT_2",
+      "selected": false,
+      "fileName": "Short att. F. name.ext"
+    },
+    {
+      "attachmentId": "ATT_3",
+      "selected": true,
+      "fileName": "Customer Approval.ext"
+    }
+  ],
+  
+"items": [
+  {
+    "itemId": "ITEM_1",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Security",
+    "billingType": "fixed price",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  },
+  {
+    "itemId": "ITEM_2",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Security",
+    "billingType": "fixed price",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  },
+  {
+    "itemId": "ITEM_3",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Security",
+    "billingType": "fixed price",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  },
+  {
+    "itemId": "ITEM_4",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Lunch time",
+    "billingType": "fixed unit",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  },
+  {
+    "itemId": "ITEM_5",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Lunch time",
+    "billingType": "fixed unit",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  },
+  {
+    "itemId": "ITEM_6",
+    "wbsElement": "BE.C0000002.2.1",
+    "article": "Lunch time",
+    "billingType": "fixed unit",
+    "quantity": "",
+    "unitOfMeasure": "EA",
+    "unitPrice": "2.67",
+    "totalNet": "122.82",
+    "vat": "3",
+    "gross": "130.87",
+    "poItem": "",
+    "additionalDescription": ""
+  }
+],
+"itemTotals": {
+  "totalNet": "736.92",
+  "vat": "3",
+  "totalGross": "785.22"
+}
+}

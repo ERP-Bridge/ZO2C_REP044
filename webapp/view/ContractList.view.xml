@@ -1,0 +1,192 @@
+<mvc:View
+    controllerName="com.sodexo.zo2crep044.controller.ContractList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page id="page" showHeader="false">
+
+        <VBox class="sapUiMediumMargin">
+
+            <Title text="Contract List" level="H3"/>
+
+            <!-- Filter Section -->
+            <Panel class="sapUiSmallMarginTop">
+
+                <f:SimpleForm
+                    editable="true"
+                    layout="ColumnLayout"
+                    columnsM="2"
+                    columnsL="3"
+                    columnsXL="3">
+
+                    <Label text="Site:"/>
+                    <Text text="{appModel>/filters/site}"/>
+
+                    <Label text="Sold to customer:"/>
+                    <Select
+                        width="100%"
+                        selectedKey="{appModel>/filters/soldToCustomerId}"
+                        change=".onCustomerChange"
+                        items="{appModel>/customers}">
+
+                        <core:Item
+                            key="{appModel>customerId}"
+                            text="{appModel>customerName}"/>
+                    </Select>
+
+                    <Label text="Sold to address data:"/>
+                    <Text text="{appModel>/filters/soldToAddressData}"/>
+
+                    <Label text="Contract num:"/>
+                    <Input
+                        value="{appModel>/filters/contractNum}"
+                        placeholder="Enter contract number"/>
+
+                    <Label text="EPM num:"/>
+                    <Input
+                        value="{appModel>/filters/epmNum}"
+                        placeholder="Enter EPM number"/>
+
+                    <Label text="EPM contract description:"/>
+                    <Input
+                        value="{appModel>/filters/epmContractDescription}"
+                        placeholder="Enter EPM contract description"/>
+
+                    <Label text="Valid from:"/>
+                    <DatePicker
+                        value="{appModel>/filters/validFrom}"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="dd/MM/yyyy"
+                        placeholder="e.g. 31/12/2026"/>
+
+                    <Label text="Valid to:"/>
+                    <DatePicker
+                        value="{appModel>/filters/validTo}"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="dd/MM/yyyy"
+                        placeholder="e.g. 31/12/2026"/>
+
+                </f:SimpleForm>
+
+            </Panel>
+
+            <!-- Contract Table -->
+            <Panel class="sapUiSmallMarginTop">
+
+                <ScrollContainer
+                    width="100%"
+                    horizontal="true"
+                    vertical="false">
+
+                    <Table
+                        id="contractTable"
+                        width="120rem"
+                        fixedLayout="true"
+                        items="{appModel>/visibleContracts}"
+                        growing="true"
+                        growingThreshold="20">
+
+                        <columns>
+                            <Column width="4rem" hAlign="Center">
+                                <Text text=""/>
+                            </Column>
+
+                            <Column width="24rem">
+                                <Text text="Customer"/>
+                            </Column>
+
+                            <Column width="11rem">
+                                <Text text="Contract num"/>
+                            </Column>
+
+                            <Column width="14rem">
+                                <Text text="Contract description"/>
+                            </Column>
+
+                            <Column width="11rem">
+                                <Text text="EPM num"/>
+                            </Column>
+
+                            <Column width="22rem">
+                                <Text text="EPM description"/>
+                            </Column>
+
+                            <Column width="12rem">
+                                <Text text="PO Number"/>
+                            </Column>
+
+                            <Column width="10rem">
+                                <Text text="Valid from"/>
+                            </Column>
+
+                            <Column width="10rem">
+                                <Text text="Valid to"/>
+                            </Column>
+
+                            <Column width="7rem" hAlign="Center">
+                                <Text text="Actions"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <CheckBox
+                                        selected="{appModel>selected}"
+                                        select=".onContractCheckBoxSelect"/>
+
+                                    <Link
+                                        text="{appModel>customer}"
+                                        wrapping="false"
+                                        press=".onOpenContract"/>
+
+                                    <Link
+                                        text="{appModel>contractNum}"
+                                        wrapping="false"
+                                        press=".onOpenContract"/>
+
+                                    <Text
+                                        text="{appModel>contractDescription}"
+                                        wrapping="false"/>
+
+                                    <Link
+                                        text="{appModel>epmNum}"
+                                        wrapping="false"/>
+
+                                    <Text
+                                        text="{appModel>epmDescription}"
+                                        wrapping="true"/>
+
+                                    <Text
+                                        text="{appModel>poNumber}"
+                                        wrapping="false"/>
+
+                                    <Text
+                                        text="{appModel>validFrom}"
+                                        wrapping="false"/>
+
+                                    <Text
+                                        text="{appModel>validTo}"
+                                        wrapping="false"/>
+
+                                    <Button
+                                        icon="sap-icon://show"
+                                        type="Transparent"
+                                        press=".onOpenContract"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </ScrollContainer>
+
+            </Panel>
+
+        </VBox>
+
+    </Page>
+
+</mvc:View>

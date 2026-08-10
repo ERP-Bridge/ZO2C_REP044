@@ -1,0 +1,122 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "com.sodexo.zo2crep044",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.30.0",
+      "toolsId": "e8560dc3-4488-4d56-a541-8eee90ed88be"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ebilling-manage": {
+          "semanticObject": "ebilling",
+          "action": "manage",
+          "title": "{{ebilling-manage.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.151.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.unified": {},
+        "sap.ui.table": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.sodexo.zo2crep044.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+"routing": {
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "type": "View",
+    "viewType": "XML",
+    "path": "com.sodexo.zo2crep044.view",
+    "controlId": "app",
+    "controlAggregation": "pages",
+    "async": true
+  },
+  "routes": [
+    {
+      "name": "RouteContractList",
+      "pattern": "",
+      "target": [
+        "TargetContractList"
+      ]
+    },
+    {
+      "name": "RouteSalesOrder",
+      "pattern": "salesOrder/{contractNum}",
+      "target": [
+        "TargetSalesOrder"
+      ]
+    }
+  ],
+  "targets": {
+    "TargetContractList": {
+      "id": "ContractList",
+      "name": "ContractList"
+    },
+    "TargetSalesOrder": {
+      "id": "SalesOrder",
+      "name": "SalesOrder"
+    }
+  }
+},
+    "rootView": {
+      "viewName": "com.sodexo.zo2crep044.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

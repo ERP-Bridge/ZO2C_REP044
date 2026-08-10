@@ -1,0 +1,509 @@
+<mvc:View
+ controllerName="com.sodexo.zo2crep044.controller.SalesOrder"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:u="sap.ui.unified">
+
+ <Page
+ id="salesOrderPage"
+ showHeader="false">
+
+ <VBox class="sapUiMediumMargin">
+
+ <!-- Toolbar -->
+ <OverflowToolbar>
+ <Title text="Sales order Creation" level="H3"/>
+ <ToolbarSpacer/>
+
+ <Button
+ text="Back"
+ icon="sap-icon://nav-back"
+ type="Transparent"
+ press=".onBack"/>
+
+ <Button
+ text="Mail to..."
+ icon="sap-icon://email"
+ type="Default"/>
+
+ <Button
+ text="Print"
+ icon="sap-icon://print"
+ type="Default"/>
+
+ <Button
+ text="Export as..."
+ icon="sap-icon://download"
+ type="Default"/>
+
+ <Button
+ text="Save"
+ icon="sap-icon://save"
+ type="Default"
+ press=".onSave"/>
+
+ <Button
+ text="Confirm Sales Order"
+ icon="sap-icon://accept"
+ type="Emphasized"
+ press=".onConfirmSalesOrder"/>
+
+ <Button
+ icon="sap-icon://delete"
+ type="Transparent"/>
+ </OverflowToolbar>
+
+ <!-- Contract / Customer / Address Section -->
+ <Panel class="sapUiSmallMarginTop">
+ <VBox class="sapUiSmallMargin">
+
+ <HBox width="100%" justifyContent="SpaceBetween">
+
+ <VBox width="30%">
+ <Label text="Site"/>
+ <Text text="{appModel>/salesOrder/site}"/>
+ </VBox>
+
+ <VBox width="30%">
+ <Label text="Contract number"/>
+ <Text text="{appModel>/selectedContract/contractNum}"/>
+ </VBox>
+
+ <VBox width="30%">
+ <Label text="EPM contract"/>
+ <Text text="{appModel>/selectedContract/epmNum}"/>
+ </VBox>
+
+ <VBox width="5%" alignItems="End">
+ <Button
+ icon="{appModel>/salesOrder/addressToggleIcon}"
+ type="Emphasized"
+ press=".onToggleAddressDetails"/>
+ </VBox>
+
+ </HBox>
+
+ <HBox
+ width="100%"
+ justifyContent="SpaceBetween"
+ class="sapUiMediumMarginTop">
+
+ <VBox width="48%">
+ <Label text="Sold to customer"/>
+ <Text text="{appModel>/selectedContract/customer}"/>
+ </VBox>
+
+ <VBox width="48%">
+ <Label text="Bill to customer"/>
+ <Text text="{appModel>/salesOrder/billToCustomer}"/>
+ </VBox>
+
+ </HBox>
+
+ <HBox
+ width="100%"
+ justifyContent="SpaceBetween"
+ class="sapUiMediumMarginTop"
+ visible="{appModel>/salesOrder/showAddressDetails}">
+
+ <VBox width="30%">
+ <Label text="Sold to :"/>
+ <Text text="{appModel>/salesOrder/soldToAddressLine1}"/>
+ <Text text="{appModel>/salesOrder/soldToAddressLine2}"/>
+ <Text text="{appModel>/salesOrder/soldToAddressLine3}"/>
+ </VBox>
+
+ <VBox width="30%">
+ <Label text="Bill to :"/>
+ <Text text="{appModel>/salesOrder/billToAddressLine1}"/>
+ <Text text="{appModel>/salesOrder/billToAddressLine2}"/>
+ <Text text="{appModel>/salesOrder/billToAddressLine3}"/>
+ </VBox>
+
+ <VBox width="30%">
+ <Label text="Ship to :"/>
+
+ <Select
+ width="100%"
+ selectedKey="{appModel>/salesOrder/selectedShipToId}"
+ change=".onShipToChange"
+ items="{appModel>/shipToOptions}">
+
+ <core:Item
+ key="{appModel>shipToId}"
+ text="{appModel>shipToFullAddress}"/>
+
+ </Select>
+
+ <VBox class="sapUiTinyMarginTop">
+ <Text text="{appModel>/salesOrder/shipToAddressLine1}"/>
+ <Text text="{appModel>/salesOrder/shipToAddressLine2}"/>
+ <Text text="{appModel>/salesOrder/shipToAddressLine3}"/>
+ </VBox>
+ </VBox>
+
+ </HBox>
+
+ </VBox>
+ </Panel>
+
+ <!-- Category Section -->
+ <Panel class="sapUiSmallMarginTop">
+ <VBox class="sapUiSmallMargin">
+
+ <HBox width="100%" justifyContent="SpaceBetween">
+
+ <VBox width="48%">
+ <Label text="Category"/>
+
+ <Select
+ width="100%"
+ selectedKey="{appModel>/salesOrder/category}"
+ change=".onCategoryChange"
+ items="{appModel>/categoryOptions}">
+
+ <core:Item
+ key="{appModel>key}"
+ text="{appModel>text}"/>
+
+ </Select>
+ </VBox>
+
+ <VBox width="48%">
+ <Label text="Description"/>
+
+ <Input
+ width="100%"
+ value="{appModel>/salesOrder/description}"
+ liveChange=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ </HBox>
+
+ <VBox width="48%" class="sapUiSmallMarginTop">
+ <Label text="Additional information :"/>
+
+ <TextArea
+ width="100%"
+ rows="4"
+ value="{appModel>/salesOrder/additionalInformation}"
+ placeholder="Placeholder"
+ liveChange=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ </VBox>
+ </Panel>
+
+ <!-- Service Date / PO / Currency Section -->
+ <Panel class="sapUiSmallMarginTop">
+ <HBox
+ class="sapUiSmallMargin"
+ width="100%"
+ justifyContent="SpaceBetween"
+ alignItems="Start">
+
+ <VBox width="14%">
+ <Label text="Service date from"/>
+ <DatePicker
+ width="100%"
+ value="{appModel>/salesOrder/serviceDateFrom}"
+ valueFormat="yyyy-MM-dd"
+ displayFormat="dd/MM/yyyy"
+ change=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ <VBox width="14%">
+ <Label text="Service date to"/>
+ <DatePicker
+ width="100%"
+ value="{appModel>/salesOrder/serviceDateTo}"
+ valueFormat="yyyy-MM-dd"
+ displayFormat="dd/MM/yyyy"
+ change=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ <VBox width="14%">
+ <Label text="Posting date"/>
+ <DatePicker
+ width="100%"
+ value="{appModel>/salesOrder/postingDate}"
+ valueFormat="yyyy-MM-dd"
+ displayFormat="dd/MM/yyyy"
+ change=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ <ToolbarSpacer/>
+
+ <VBox width="18%">
+ <Label text="Customer PO num"/>
+ <Input
+ width="100%"
+ value="{appModel>/salesOrder/customerPoNumber}"
+ liveChange=".onSalesOrderFieldChange"/>
+ </VBox>
+
+ <VBox width="10%">
+ <Label text="Currency"/>
+ <Text
+ text="{appModel>/salesOrder/currency}"
+ class="sapUiTinyMarginTop"/>
+ </VBox>
+
+ </HBox>
+ </Panel>
+
+ <!-- Attachments Section -->
+ <Panel class="sapUiSmallMarginTop">
+ <VBox class="sapUiSmallMargin">
+
+ <HBox width="100%" justifyContent="SpaceBetween" alignItems="Center">
+
+ <Title
+ text="{= 'Attachments (' + ${appModel>/attachments}.length + ')' }"
+ level="H5"/>
+
+ <Button
+ icon="{appModel>/salesOrder/attachmentsToggleIcon}"
+ type="Emphasized"
+ press=".onToggleAttachments"/>
+
+ </HBox>
+
+ <HBox
+ width="100%"
+ justifyContent="SpaceBetween"
+ alignItems="Start"
+ class="sapUiMediumMarginTop"
+ visible="{appModel>/salesOrder/showAttachments}">
+
+ <VBox width="55%">
+ <Text
+ text="Select the documents you wish to share with your contacts."
+ class="sapUiSmallMarginBottom"/>
+
+ <List
+ items="{appModel>/attachments}"
+ showSeparators="None"
+ width="100%">
+
+ <CustomListItem>
+ <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+
+ <CheckBox
+ selected="{appModel>selected}"
+ select=".onAttachmentSelect"/>
+
+ <Link
+ text="{appModel>fileName}"
+ press=".onViewAttachment"
+ class="sapUiSmallMarginBegin"/>
+
+ <Button
+ icon="sap-icon://show"
+ type="Transparent"
+ press=".onViewAttachment"
+ class="sapUiSmallMarginBegin"/>
+
+ <Button
+ icon="sap-icon://delete"
+ type="Transparent"
+ press=".onDeleteAttachment"/>
+
+ </HBox>
+ </CustomListItem>
+
+ </List>
+ </VBox>
+
+ <HBox width="40%" justifyContent="End" alignItems="Center">
+
+ <Input
+ width="18rem"
+ value="{appModel>/salesOrder/uploadFileName}"
+ editable="false"
+ placeholder="No file selected"/>
+
+ <u:FileUploader
+ id="attachmentFileUploader"
+ buttonOnly="true"
+ buttonText="Upload"
+ icon="sap-icon://upload"
+ sameFilenameAllowed="true"
+ change=".onFileSelected"
+ class="sapUiSmallMarginBegin"/>
+
+ </HBox>
+
+ </HBox>
+
+ </VBox>
+ </Panel>
+
+ <!-- Items Category Section -->
+ <Panel class="sapUiSmallMarginTop itemsPanel">
+
+ <VBox class="sapUiSmallMargin">
+
+ <Title
+ text="Items Category (fixed) TBC"
+ level="H5"
+ class="itemsTitle"/>
+
+ <ScrollContainer
+ width="100%"
+ horizontal="true"
+ vertical="false"
+ focusable="false"
+ class="itemsScrollContainer">
+
+ <VBox class="itemsGridCanvas">
+
+ <!-- Header Row -->
+ <HBox class="itemsHeaderRow">
+
+ <Text text="WBS element" class="itemsHeaderCell"/>
+ <Text text="Article" class="itemsHeaderCell"/>
+ <Text text="Billing Type" class="itemsHeaderCell"/>
+ <Text text="Quantity" class="itemsHeaderCell itemsCenter"/>
+ <Text text="Unit of measure" class="itemsHeaderCell itemsCenter"/>
+ <Text text="Unit price" class="itemsHeaderCell itemsCenter"/>
+ <Text text="Total net" class="itemsHeaderCell itemsCenter"/>
+ <Text text="VAT%" class="itemsHeaderCell itemsCenter"/>
+ <Text text="Gross" class="itemsHeaderCell itemsCenter"/>
+ <Text text="PO Item" class="itemsHeaderCell itemsCenter"/>
+ <Text text="" class="itemsHeaderCell itemsCenter"/>
+
+ </HBox>
+
+ <!-- Item Rows -->
+ <List
+ items="{appModel>/items}"
+ showSeparators="Inner"
+ width="100%"
+ class="itemsList">
+
+ <CustomListItem>
+
+ <VBox class="itemBlock">
+
+ <!-- Main Item Row -->
+ <HBox class="itemMainRow">
+
+ <Text
+ text="{appModel>wbsElement}"
+ class="itemCell"/>
+
+ <Text
+ text="{appModel>article}"
+ class="itemCell"/>
+
+ <Text
+ text="{appModel>billingType}"
+ class="itemCell"/>
+
+ <Input
+ value="{appModel>quantity}"
+ placeholder="Value"
+ textAlign="End"
+ liveChange=".onItemFieldChange"
+ class="itemInput itemCell"/>
+
+ <Text
+ text="{appModel>unitOfMeasure}"
+ class="itemCell itemsCenter"/>
+
+ <Text
+ text="{appModel>unitPrice}"
+ class="itemCell itemsCenter"/>
+
+ <Text
+ text="{appModel>totalNet}"
+ class="itemCell itemsCenter"/>
+
+ <Text
+ text="{appModel>vat}"
+ class="itemCell itemsCenter"/>
+
+ <Text
+ text="{appModel>gross}"
+ class="itemCell itemsCenter"/>
+
+ <Input
+ value="{appModel>poItem}"
+ placeholder="[Number]"
+ textAlign="End"
+ liveChange=".onItemFieldChange"
+ class="itemInput itemCell"/>
+
+ <Button
+ icon="sap-icon://copy"
+ type="Transparent"
+ press=".onCopyItem"
+ class="itemCopyButton"/>
+
+ </HBox>
+
+ <!-- Additional Description Row -->
+ <HBox class="itemDescriptionRow">
+
+ <Label
+ text="Additional description"
+ class="itemDescriptionLabel"/>
+
+ <Input
+ value="{appModel>additionalDescription}"
+ placeholder="[Description]"
+ liveChange=".onItemFieldChange"
+ class="itemDescriptionInput"/>
+
+ </HBox>
+
+ </VBox>
+
+ </CustomListItem>
+
+ </List>
+
+ </VBox>
+
+ </ScrollContainer>
+
+ </VBox>
+
+ </Panel>
+
+ <!-- Item Totals Section -->
+ <Panel class="sapUiSmallMarginTop itemTotalsPanel">
+
+ <HBox
+ width="100%"
+ justifyContent="End"
+ class="sapUiSmallMargin">
+
+ <VBox class="itemTotalsBox">
+
+ <HBox justifyContent="SpaceBetween" class="itemTotalsHeader">
+ <Text text="Total net"/>
+ <Text text="VAT %"/>
+ <Text text="Total gross"/>
+ </HBox>
+
+ <HBox justifyContent="SpaceBetween" class="sapUiSmallMarginTop">
+ <Text text="{appModel>/itemTotals/totalNet}"/>
+ <Text text="{appModel>/itemTotals/vat}"/>
+ <Text text="{appModel>/itemTotals/totalGross}"/>
+ </HBox>
+
+ </VBox>
+
+ </HBox>
+
+ </Panel>
+
+ </VBox>
+
+ </Page>
+
+</mvc:View>
+
