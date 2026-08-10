@@ -184,9 +184,7 @@ sap.ui.define([
             var aVisibleContracts = aContracts.filter(function (oContract) {
                 return oContract.customerId === sSelectedCustomerId;
             });
-
             oModel.setProperty("/visibleContracts", aVisibleContracts);
         }
-
     });
 });
