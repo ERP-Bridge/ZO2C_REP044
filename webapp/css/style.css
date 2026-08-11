@@ -1,3 +1,37 @@
+/* ========================================================= */
+/* Contract List Table                                      */
+/* ========================================================= */
+
+.contractListTable {
+    min-width: 96rem;
+}
+
+.contractListTable .sapMListTblHeaderCell {
+    vertical-align: middle;
+}
+
+.contractListTable .sapMListTblCell {
+    vertical-align: middle;
+}
+
+.contractListTable .sapMText,
+.contractListTable .sapMLnk {
+    line-height: 1.25rem;
+}
+
+.contractListTable .sapMListTblCell:first-child {
+    text-align: center;
+}
+
+.contractListTable .sapMListTblHeaderCell:first-child {
+    text-align: center;
+}
+
+
+/* ========================================================= */
+/* Items Category Section                                   */
+/* ========================================================= */
+
 .itemsPanel {
     background: #ffffff;
 }
@@ -105,7 +139,11 @@
     justify-self: center;
 }
 
-/* Totals */
+
+/* ========================================================= */
+/* Totals Section                                           */
+/* ========================================================= */
+
 .itemTotalsPanel {
     background: #ffffff;
 }

@@ -5,11 +5,15 @@
     xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form">
 
-    <Page id="page" showHeader="false">
+    <Page
+        id="page"
+        showHeader="false">
 
         <VBox class="sapUiMediumMargin">
 
-            <Title text="Contract List" level="H3"/>
+            <Title
+                text="Contract List"
+                level="H3"/>
 
             <!-- Filter Section -->
             <Panel class="sapUiSmallMarginTop">
@@ -34,6 +38,7 @@
                         <core:Item
                             key="{appModel>customerId}"
                             text="{appModel>customerName}"/>
+
                     </Select>
 
                     <Label text="Sold to address data:"/>
@@ -75,118 +80,119 @@
             <!-- Contract Table -->
             <Panel class="sapUiSmallMarginTop">
 
-                <ScrollContainer
+                <Table
+                    id="contractTable"
                     width="100%"
-                    horizontal="true"
-                    vertical="false">
+                    fixedLayout="false"
+                    inset="false"
+                    sticky="ColumnHeaders"
+                    class="contractListTable"
+                    items="{appModel>/visibleContracts}"
+                    growing="true"
+                    growingThreshold="20">
 
-                    <Table
-                        id="contractTable"
-                        width="120rem"
-                        fixedLayout="true"
-                        items="{appModel>/visibleContracts}"
-                        growing="true"
-                        growingThreshold="20">
+                    <columns>
 
-                        <columns>
-                            <Column width="4rem" hAlign="Center">
-                                <Text text=""/>
-                            </Column>
+                        <Column
+                            hAlign="Center">
+                            <Text text=""/>
+                        </Column>
 
-                            <Column width="24rem">
-                                <Text text="Customer"/>
-                            </Column>
+                        <Column>
+                            <Text text="Customer"/>
+                        </Column>
 
-                            <Column width="11rem">
-                                <Text text="Contract num"/>
-                            </Column>
+                        <Column>
+                            <Text text="Contract num"/>
+                        </Column>
 
-                            <Column width="14rem">
-                                <Text text="Contract description"/>
-                            </Column>
+                        <Column>
+                            <Text text="Contract description"/>
+                        </Column>
 
-                            <Column width="11rem">
-                                <Text text="EPM num"/>
-                            </Column>
+                        <Column>
+                            <Text text="EPM num"/>
+                        </Column>
 
-                            <Column width="22rem">
-                                <Text text="EPM description"/>
-                            </Column>
+                        <Column>
+                            <Text text="EPM description"/>
+                        </Column>
 
-                            <Column width="12rem">
-                                <Text text="PO Number"/>
-                            </Column>
+                        <Column>
+                            <Text text="PO Number"/>
+                        </Column>
 
-                            <Column width="10rem">
-                                <Text text="Valid from"/>
-                            </Column>
+                        <Column>
+                            <Text text="Valid from"/>
+                        </Column>
 
-                            <Column width="10rem">
-                                <Text text="Valid to"/>
-                            </Column>
+                        <Column>
+                            <Text text="Valid to"/>
+                        </Column>
 
-                            <Column width="7rem" hAlign="Center">
-                                <Text text="Actions"/>
-                            </Column>
-                        </columns>
+                        <Column
+                            hAlign="Center">
+                            <Text text="Actions"/>
+                        </Column>
 
-                        <items>
-                            <ColumnListItem>
-                                <cells>
-                                    <CheckBox
-                                        selected="{appModel>selected}"
-                                        select=".onContractCheckBoxSelect"/>
+                    </columns>
 
-                                    <Link
-                                        text="{appModel>customer}"
-                                        wrapping="false"
-                                        press=".onOpenContract"/>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
 
-                                    <Link
-                                        text="{appModel>contractNum}"
-                                        wrapping="false"
-                                        press=".onOpenContract"/>
+                                <CheckBox
+                                    selected="{appModel>selected}"
+                                    select=".onContractCheckBoxSelect"/>
 
-                                    <Text
-                                        text="{appModel>contractDescription}"
-                                        wrapping="false"/>
+                                <Link
+                                    text="{appModel>customer}"
+                                    wrapping="true"
+                                    press=".onOpenContract"/>
 
-                                    <Link
-                                        text="{appModel>epmNum}"
-                                        wrapping="false"/>
+                                <Link
+                                    text="{appModel>contractNum}"
+                                    wrapping="false"
+                                    press=".onOpenContract"/>
 
-                                    <Text
-                                        text="{appModel>epmDescription}"
-                                        wrapping="true"/>
+                                <Text
+                                    text="{appModel>contractDescription}"
+                                    wrapping="false"/>
 
-                                    <Text
-                                        text="{appModel>poNumber}"
-                                        wrapping="false"/>
+                                <Link
+                                    text="{appModel>epmNum}"
+                                    wrapping="false"/>
 
-                                    <Text
-                                        text="{appModel>validFrom}"
-                                        wrapping="false"/>
+                                <Text
+                                    text="{appModel>epmDescription}"
+                                    wrapping="true"/>
 
-                                    <Text
-                                        text="{appModel>validTo}"
-                                        wrapping="false"/>
+                                <Text
+                                    text="{appModel>poNumber}"
+                                    wrapping="false"/>
 
-                                    <Button
-                                        icon="sap-icon://show"
-                                        type="Transparent"
-                                        press=".onOpenContract"/>
-                                </cells>
-                            </ColumnListItem>
-                        </items>
+                                <Text
+                                    text="{appModel>validFrom}"
+                                    wrapping="false"/>
 
-                    </Table>
+                                <Text
+                                    text="{appModel>validTo}"
+                                    wrapping="false"/>
 
-                </ScrollContainer>
+                                <Button
+                                    icon="sap-icon://show"
+                                    type="Transparent"
+                                    press=".onOpenContract"/>
+
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+
+                </Table>
 
             </Panel>
 
         </VBox>
 
     </Page>
-
 </mvc:View>
