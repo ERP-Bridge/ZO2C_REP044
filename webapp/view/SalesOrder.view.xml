@@ -49,9 +49,11 @@
  type="Emphasized"
  press=".onConfirmSalesOrder"/>
 
- <Button
- icon="sap-icon://delete"
- type="Transparent"/>
+<Button
+    icon="sap-icon://delete"
+    type="Transparent"
+    press=".onDeleteSalesOrder"/>
+
  </OverflowToolbar>
 
  <!-- Contract / Customer / Address Section -->
